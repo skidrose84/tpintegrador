@@ -13,6 +13,7 @@ let labelPassword = document.getElementById('labelPassword');
 let confirmarPassword = document.getElementById('labelConfirmar');
 let span = document.getElementById('span');
 let spanTerminos = document.getElementById('spanTerminos');
+let formValido= false;
 
 
 labelNombre.hidden = true;
@@ -23,7 +24,18 @@ span.hidden= true;
 spanTerminos.hidden = true;
 
 
-console.log(confirmarPassword.hidden);
+function clean(){
+ labelEmail.hidden=true;
+ labelNombre.hidden = true;
+ labelPassword.hidden = true;
+ confirmarPassword.hidden= true;
+
+ nombre.textContent ="";
+ email.textContent="";
+ password.textContent="";
+ confirmarPassword.textContent="";
+
+}
 function validarForm(){
     if(nombre.value === ""){
 
@@ -47,10 +59,9 @@ function validarForm(){
         
         confirmarPassword.hidden= false;
         confirmarPassword.focus();
-    }
-    if(password.value != repeatPass.value){
-
-        //alert('las contraseñas no coinciden');
+    }else if(password.value != repeatPass.value){
+        confirmarPassword.hidden= true;
+      
         span.hidden=false;
         password.focus();
        
@@ -58,17 +69,22 @@ function validarForm(){
 
     if (terminos.checked != true){
 
-        //alert('por favor acepte los terminos');
+        
         spanTerminos.hidden = false;
     }
-
+formValido=true;
     
     
 }
  formulario.addEventListener('submit',(e) => {
     e.preventDefault()
     validarForm()
-
+    if(formValido=true){
+        window.location.href ="index.html";
+    }
+     
+    
+    
  
  });
     
