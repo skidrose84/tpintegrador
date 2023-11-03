@@ -72,16 +72,17 @@ function validarForm(){
         
         spanTerminos.hidden = false;
     }
-formValido=true;
+    
+
     
     
 }
  formulario.addEventListener('submit',(e) => {
     e.preventDefault()
     validarForm()
-    if(formValido=true){
-        window.location.href ="index.html";
-    }
+    // if(formValido=true){
+    //     window.location.href ="index.html";
+    // }
      
     
     
