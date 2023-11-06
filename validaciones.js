@@ -13,7 +13,7 @@ let labelPassword = document.getElementById('labelPassword');
 let confirmarPassword = document.getElementById('labelConfirmar');
 let span = document.getElementById('span');
 let spanTerminos = document.getElementById('spanTerminos');
-let formValido= false;
+let validaciones;
 
 
 labelNombre.hidden = true;
@@ -43,34 +43,52 @@ function validarForm(){
         labelNombre.hidden = false;
        
         nombre.focus();
+        validaciones=false;
+    }else{
+        validaciones=true;
     }
     if(email.value === ""){
 
         labelEmail.hidden = false;
         email.focus();
+        validaciones=false;
     
+    }else{
+        validaciones=true;
     }
     if(password.value === ""){
 
         labelPassword.hidden = false;
         labelPassword.focus();
+        validaciones=false;
+    }else{
+        validaciones=true;
     }
     if(repeatPass.value === ""){
         
         confirmarPassword.hidden= false;
         confirmarPassword.focus();
-    }else if(password.value != repeatPass.value){
+        validaciones=false;
+    }else{
+        validaciones=true;
+    } if(password.value != repeatPass.value){
         confirmarPassword.hidden= true;
       
         span.hidden=false;
         password.focus();
+        validaciones=false;
        
+    }else{
+        validaciones=true;
     }
 
     if (terminos.checked != true){
 
         
         spanTerminos.hidden = false;
+        validaciones=false;
+    }else{
+        validaciones=true;
     }
     
 
@@ -80,9 +98,9 @@ function validarForm(){
  formulario.addEventListener('submit',(e) => {
     e.preventDefault()
     validarForm()
-    // if(formValido=true){
-    //     window.location.href ="index.html";
-    // }
+     if(validaciones===true){
+         window.location.href ="IniciarSesion.html";
+     }
      
     
     
