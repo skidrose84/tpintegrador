@@ -14,6 +14,7 @@ let confirmarPassword = document.getElementById('labelConfirmar');
 let span = document.getElementById('span');
 let spanTerminos = document.getElementById('spanTerminos');
 let validaciones;
+let bandera;
 
 
 labelNombre.hidden = true;
@@ -39,35 +40,38 @@ function clean(){
 function validarForm(){
     if(nombre.value === ""){
 
-        
+        bandera=nombre;
         labelNombre.hidden = false;
        
         nombre.focus();
         validaciones=false;
     }else{
         validaciones=true;
+        bandera=email;
     }
     if(email.value === ""){
 
         labelEmail.hidden = false;
-        email.focus();
+        bandera.focus();
         validaciones=false;
     
     }else{
         validaciones=true;
+        bandera=password;
     }
     if(password.value === ""){
 
         labelPassword.hidden = false;
-        labelPassword.focus();
+        bandera.focus();
         validaciones=false;
     }else{
         validaciones=true;
+        bandera=repeatPass;
     }
     if(repeatPass.value === ""){
         
         confirmarPassword.hidden= false;
-        confirmarPassword.focus();
+        bandera.focus();
         validaciones=false;
     }else{
         validaciones=true;
@@ -80,6 +84,7 @@ function validarForm(){
        
     }else{
         validaciones=true;
+        bandera=terminos;
     }
 
     if (terminos.checked != true){
