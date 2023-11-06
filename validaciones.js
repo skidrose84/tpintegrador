@@ -104,7 +104,7 @@ function validarForm(){
     e.preventDefault()
     validarForm()
      if(validaciones===true){
-         window.location.href ="IniciarSesion.html";
+         window.location.href ="iniciarSesion.html";
      }
      
     
