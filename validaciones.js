@@ -38,62 +38,82 @@ function clean(){
 
 }
 function validarForm(){
+    validaciones=0;
     if(nombre.value === ""){
-
+        
         bandera=nombre;
         labelNombre.hidden = false;
-       
-        nombre.focus();
-        validaciones=false;
+        bandera.focus();
+        
     }else{
-        validaciones=true;
+        
         bandera=email;
+        validaciones = validaciones +1;
+       // alert('entro1');
+        
     }
     if(email.value === ""){
-
+        
         labelEmail.hidden = false;
         bandera.focus();
-        validaciones=false;
+        
+        
     
     }else{
-        validaciones=true;
+        
         bandera=password;
+        validaciones =validaciones +1;
+        //alert('entro 2');
+        
     }
     if(password.value === ""){
-
+        
         labelPassword.hidden = false;
         bandera.focus();
-        validaciones=false;
+        
+       
     }else{
-        validaciones=true;
+        
         bandera=repeatPass;
+        validaciones =validaciones +1;
+       // alert('entro3');
+        
     }
     if(repeatPass.value === ""){
         
         confirmarPassword.hidden= false;
         bandera.focus();
-        validaciones=false;
+        
     }else{
-        validaciones=true;
+        validaciones =validaciones+1;
+       // alert('entro4');
+        
     } if(password.value != repeatPass.value){
         confirmarPassword.hidden= true;
       
         span.hidden=false;
         password.focus();
-        validaciones=false;
+     
        
     }else{
-        validaciones=true;
+        
         bandera=terminos;
+        validaciones = validaciones +1;
+        
+        
+        
     }
 
     if (terminos.checked != true){
 
         
         spanTerminos.hidden = false;
-        validaciones=false;
+        
     }else{
-        validaciones=true;
+        validaciones =validaciones +1;
+        //alert('entro6');
+        
+        
     }
     
 
@@ -103,9 +123,13 @@ function validarForm(){
  formulario.addEventListener('submit',(e) => {
     e.preventDefault()
     validarForm()
-     if(validaciones===true){
+    console.log(validaciones);
+      if(validaciones =='6'){
+          //alert('hubo :'+validaciones+' validaciones');
          window.location.href ="iniciarSesion.html";
-     }
+      }else{
+          validarForm();
+      }
      
     
     
